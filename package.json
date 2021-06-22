@@ -1,0 +1,24 @@
+{
+  "name": "davidweiland_7_22062021",
+  "version": "1.0.0",
+  "description": "Développez un algorithme de recherche en JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidWeiland/DavidWeiland_7_22062021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidWeiland/DavidWeiland_7_22062021/issues"
+  },
+  "homepage": "https://github.com/DavidWeiland/DavidWeiland_7_22062021#readme",
+  "devDependencies": {
+    "webpack": "^5.40.0",
+    "webpack-cli": "^4.7.2"
+  }
+}
