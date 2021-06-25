@@ -3,7 +3,7 @@
     <head>
         <meta charset ="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!--<link rel="stylesheet" href="public/style.css"/>-->
+        <link rel="stylesheet" href="./assets/js/app.css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
         integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet"/>
@@ -12,10 +12,18 @@
     </head>
     <body>
         <header>
-            <img src='./images/Vector.png' alt='logo Les petits plats'>
-            <h1>Les petits plats</h1>                        
+            <img class="logo" src='./images/Vector.png' alt='logo Les petits plats'>
+            <h1>Les petits plats</h1>                   
         </header>
         <main>
+            <form class=search>
+                <input type="search" name="search" id="search" class="search--bar" placeholder="Rechercher un ingrédient, appareil, unstensiles ou une recettes">
+                    <button class="search--icon"></button>
+                </input>
+            </form>
+            <div class="tags tags--empty">Ici les tags</div>
+            <div class="select">Ici les 3 selects avec options</div>
+            <div class="recettes">Ici les recettes</div>
 
         </main>
             <script src="./dist/bundle.js"></script>
