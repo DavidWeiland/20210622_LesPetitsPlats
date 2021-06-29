@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack",
+    "sass": "sass ./assets/sass/main.scss:./public/css/style.css --style compressed --watch",
+    "prefix": "postcss ./public/css/style.css --use autoprefixer -d ./public/css/prefixed/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -13,6 +15,7 @@
   },
   "author": "",
   "license": "ISC",
+  "browserslist": "last 4 versions",
   "bugs": {
     "url": "https://github.com/DavidWeiland/DavidWeiland_7_22062021/issues"
   },

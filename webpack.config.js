@@ -29,7 +29,7 @@ module:{
     ]
 }*/
 }
-/*
+
 module:{
     rules:[
         {
@@ -45,4 +45,3 @@ module:{
         
     ]
 }
-*/
