@@ -1,0 +1,84 @@
+.fiche{
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    &__container{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: #E7E7E7;
+        border-radius : 5px;
+        max-width: 400px;
+        height: 400px;
+        margin-top: 2%;
+        box-sizing: border-box;
+    }
+    &__image{
+        display: block;
+        width: 100%;
+        height: 45%;
+        min-height: 45%;
+        background-color: #C7BEBE;
+        border-radius: 5px 5px 0 0;
+        color:transparent;
+    }
+    &__header{
+        display: flex;
+        margin:auto;
+        margin-top: 2%;
+        margin-bottom: initial;
+        justify-content: space-between;
+        align-items: center;
+        width: 95%;
+        height: 10%;
+        &--title,
+        &--time{
+            font-size: 18px;
+            line-height: 21.6px;
+            color:#000000;
+        }
+        &--title{
+            width: 75%;
+        }
+    }
+    &__rolled{
+        display: flex;
+        justify-content: space-between;
+        width: 95%;
+        height: 39%;
+        margin-inline: auto;
+        margin-top: 2%;
+        
+        & > *{
+            flex : 35%;
+            margin-top: initial;
+            box-sizing: border-box;
+            max-height: 95%;
+            padding-bottom: 3%;
+            overflow: hidden;
+            font-size: 12px;
+            @include line-clamp(12, 1em);
+        }
+        &--ingredients{
+            list-style: none;
+            padding-left: 0;
+            padding-right: 3%;  
+        }
+        &--food{
+            line-height: 14px;
+        }
+        &--description{
+            box-sizing: border-box;
+            padding-left: 3%;
+            line-height: 12px;
+            overflow: hidden;
+        }
+    }
+    & > *{
+        flex: 30%;
+    } 
+}
