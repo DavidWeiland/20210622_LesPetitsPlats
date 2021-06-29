@@ -1,5 +1,10 @@
 import {fiches} from './page_objet.js'
+
 export let valueRecipe;
+
+
+let i
+
 export let Recipe = function (name){
     this.name = name;
     this.id = "id";
@@ -23,13 +28,11 @@ export let Recipe = function (name){
             "appliance" : this.appliance,
             "ustensils" : this.ustensils
         }
-        //console.log(valueRecipe);
         fiches(valueRecipe);
         return valueRecipe;
     }
 }
 
-var i 
 export const fichesRecipe = function(jsonObj){
     for ( i = 0; i < jsonObj.length; i++){
     construction(jsonObj);
