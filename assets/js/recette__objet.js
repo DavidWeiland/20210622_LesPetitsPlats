@@ -1,7 +1,6 @@
-import {fiches} from './page_objet.js'
+import {fiches} from './page__objet.js';
 
 export let valueRecipe;
-
 
 let i
 
@@ -46,7 +45,10 @@ export const construction = function(recipe){
     myRecipe.ingredients = recipe[i].ingredients;
     myRecipe.ingredient = recipe[i].ingredients.ingredient; 
     myRecipe.quantity = recipe[i].ingredients.quantity;
-    myRecipe.unit = recipe[i].ingredients.unit; myRecipe.time = recipe[i].time;
-    myRecipe.description = recipe[i].description; myRecipe.appliance = recipe[i].appliance; myRecipe.ustensils = recipe[i].ustensils;
+    myRecipe.unit = recipe[i].ingredients.unit;
+    myRecipe.time = recipe[i].time;
+    myRecipe.description = recipe[i].description;
+    myRecipe.appliance = recipe[i].appliance;
+    myRecipe.ustensils = recipe[i].ustensils;
     myRecipe.getInfo();
 }
