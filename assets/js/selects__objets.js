@@ -1,3 +1,5 @@
+import { customisation } from "./custom__selects";
+
 const divSelects = document.querySelector('.selects');
 
 let ingredientsArray=[];
@@ -5,11 +7,11 @@ let applianceArray=[];
 let ustensilArray=[];
 
 let divSelectIngredient = document.createElement('div');
-divSelectIngredient.setAttribute('class','custom-select');
+divSelectIngredient.setAttribute('class','custom-select ingredient');
 let divSelectAppliance = document.createElement('div');
-divSelectAppliance.setAttribute('class','custom-select');
+divSelectAppliance.setAttribute('class','custom-select appliance');
 let divSelectUstensil = document.createElement('div');
-divSelectUstensil.setAttribute('class','custom-select');
+divSelectUstensil.setAttribute('class','custom-select ustensil');
 
 let selectIngredient = document.createElement('select');
     selectIngredient.setAttribute('id','select__ingredient');
@@ -65,4 +67,5 @@ let selectIngredient = document.createElement('select');
         divSelects.appendChild(divSelectIngredient);
         divSelects.appendChild(divSelectAppliance);
         divSelects.appendChild(divSelectUstensil);
-    }
+        customisation();
+};

@@ -2,6 +2,94 @@
     margin-top: 20px;
     width: 100%;
     height: auto;
-    display: inline;
+    display: flex;
 }
 
+.custom-select{
+    min-width: 180px;
+    max-width: 250px;
+    height: 70px;
+    margin-left: 10px;
+    position: relative;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    font-size: 18px;
+    box-sizing: border-box;
+  }
+
+  .custom-select select{
+    display:none;
+    margin-left:10px;
+    color: $fontLight;
+    border-bottom: $fontLight;
+    border-radius: 5px;
+    font-size: 18px;
+    
+  }
+  .select-selected{
+    border-radius: 5px;
+    color:$fontDark;
+    
+  }
+  .ingredient{
+    background-color: $ingredientColor;
+  }
+  .appliance{
+    background-color: $applianceColor;
+  }
+  .ustensil{
+    background-color: $ustensilColor;
+  }
+  .select-selected:after{
+    position:absolute;
+    content:">";
+    transform: rotate(90deg);
+    text-align: center;
+    top:50%;
+    margin-top: -11.5px;
+    right: 10px;
+    width: 23px;
+    height: 23px;
+  }
+  .select-selected.select-arrow-active:after{
+    transform: rotate(-90deg);
+  }
+  .select-items div,.select-selected{
+    width: 200px;
+    box-sizing: border-box;
+    color:$fontLight;
+    padding:8px 16px;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+  .select-items{
+      box-sizing: border-box;
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    position: absolute;
+    border-radius: 0px 5px 5px 5px;
+    top:90%;
+    left:0;
+    right: 0;
+    z-index: 99;
+  }
+  .select-items-ingredient{
+  width: 1000px;
+}
+  .select-hide{
+    display: none;
+    
+  }
+  .select-items div:hover,
+  .select-items div:focus {
+    background-color:rgba(0, 0, 0, 0.3);
+    border-radius : 5px;
+    color:$fontLight;
+  }
+  
