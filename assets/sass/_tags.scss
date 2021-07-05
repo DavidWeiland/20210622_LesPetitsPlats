@@ -2,9 +2,27 @@
     margin-top: 20px;
     width: 100%;
     height: auto;
-    display: inline;
+    display: flex;
 }
 
-/*.tags--empty{
+.tag{
+    min-width: auto;
+    max-width: 200px;
+    padding:0.5%;
+    padding-left : 10px;
+    padding-right: 10px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    color : $fontLight;
+    font-size: 14px;
+    & span{
+    margin-right: 10px;
+    }
+}
+
+.hidden{
     display: none;
-}*/
+}

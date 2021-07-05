@@ -8,20 +8,25 @@ const fichesRecettes = document.querySelector('.fiche');
 const divSelects = document.querySelector('.selects');
 const search = document.querySelector('#search');
 
-export const searchListenner = search.addEventListener('change', (e)=>{
+export const searchListenner = search.addEventListener('change', (e) => {
+  console.log(divSelects.firstChild)
   while (fichesRecettes.firstChild){
     fichesRecettes.removeChild(fichesRecettes.firstChild);
   };
-  while (divSelects.firstChild){
+  while (divSelects.firstChild) {
+    console.log(divSelects);
     divSelects.removeChild(divSelects.firstChild);
-  };
+  }
   let target = e.target.value
-  if (target=== "coco"){
+  if (target === "coco") {
     optionsDefault(newRecipes);
     fichesRecipe(newRecipes);
-    console.log(newRecipes)
   }else{
     optionsDefault(recipes);
     fichesRecipe(recipes);
   }
 })
+while (divSelects.firstChild) {
+  console.log(divSelects.firstChild)
+  divSelects.removeChild(divSelects.firstChild);
+};

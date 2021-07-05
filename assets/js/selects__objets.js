@@ -21,9 +21,9 @@ let selectIngredient = document.createElement('select');
     selectUstensil.setAttribute('id','select__ustensil');
     
     export const optionsDefault = function(value){
-        ingredientsArray=[];
-        applianceArray=[];
-        ustensilArray=[];
+        ingredientsArray=["Ingredients"];
+        applianceArray=["Appareils"];
+        ustensilArray = ["Ustensiles"];
         value.forEach((recipe)=>{
             for (var i = 0; i < recipe.ingredients.length; i++) {
                 ingredientsArray.push(recipe.ingredients[i].ingredient);
@@ -67,5 +67,6 @@ let selectIngredient = document.createElement('select');
         divSelects.appendChild(divSelectIngredient);
         divSelects.appendChild(divSelectAppliance);
         divSelects.appendChild(divSelectUstensil);
+        console.log(divSelects)
         customisation();
 };
