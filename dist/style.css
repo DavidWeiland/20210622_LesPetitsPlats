@@ -30,7 +30,7 @@ main {
           align-items: center;
   margin: 0; }
 
-header {
+.banner {
   margin-inline: auto;
   padding-top: 20px;
   display: -webkit-box;

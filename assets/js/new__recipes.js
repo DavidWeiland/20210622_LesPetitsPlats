@@ -1,8 +1,7 @@
 import {recipes} from "./recipes"
 
 //export let newRecipes = recipes
-export let newRecipes =
-[
+export let newRecipes =[
   {
       "id": 1,
       "name" : "Limonade de Coco",
