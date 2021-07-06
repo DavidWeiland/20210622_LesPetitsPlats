@@ -1,5 +1,4 @@
 const fichesRecettes = document.querySelector('.fiche');
-const main = document.querySelector('main')
 
 export const fiches = function (value) {
     let ingredients = [];

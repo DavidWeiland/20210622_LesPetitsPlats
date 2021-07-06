@@ -2,7 +2,7 @@
     background: $secondaryBackground;
     border-radius: 5px;
     width: 100%;
-    height: 32px;
+    height: 69px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -30,10 +30,10 @@
 }
 .search--icon{
     border:0;
-    background-color: transparent;
+    background-color: green;
     width: 32px;
     height: 32px;
-    margin-right: 0;
+    margin-right: 5px;
     box-sizing: border-box;
     z-index:11;
 }

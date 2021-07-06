@@ -1,32 +1,25 @@
-
-import {fichesRecipe} from './recette__objet';
-import {optionsDefault} from './selects__objets';
-import {newRecipes} from './new__recipes';
 import { recipes } from './recipes';
+import { triRecipes } from './tri__recipes';
+import { pageConstruction } from './page__reconstruction';
 
-const fichesRecettes = document.querySelector('.fiche');
-const divSelects = document.querySelector('.selects');
 const search = document.querySelector('#search');
+const divTags = document.querySelector('.tags');
 
-export const searchListenner = search.addEventListener('change', (e) => {
-  console.log(divSelects.firstChild)
-  while (fichesRecettes.firstChild){
-    fichesRecettes.removeChild(fichesRecettes.firstChild);
+export const searchListenner = search.addEventListener('input', (e) => {
+  while (divTags.firstChild) {
+    divTags.removeChild(divTags.firstChild);
   };
-  while (divSelects.firstChild) {
-    console.log(divSelects);
-    divSelects.removeChild(divSelects.firstChild);
-  }
-  let target = e.target.value
-  if (target === "coco") {
-    optionsDefault(newRecipes);
-    fichesRecipe(newRecipes);
-  }else{
-    optionsDefault(recipes);
-    fichesRecipe(recipes);
-  }
+  tri(e.target.value)
 })
-while (divSelects.firstChild) {
-  console.log(divSelects.firstChild)
-  divSelects.removeChild(divSelects.firstChild);
-};
+
+export let tri = function (input) {
+    //vérifie nombre de lettres min (3) + Alpha != number
+    function testInput(regex, chaine) {
+      if (regex.test(chaine)) {
+        triRecipes(input)
+      } else {
+        pageConstruction(recipes)
+      }
+    }
+    testInput(/^[A-Za-z -]\D{2,}$/, input);
+}
