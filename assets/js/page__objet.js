@@ -4,36 +4,21 @@ const main = document.querySelector('main')
 export const fiches = function (value) {
     let ingredients = [];
     let fiche = document.createElement('article');
-    fiche.setAttribute('class','fiche__container')
-    let ficheImage = document.createElement('div');
-    //let ficheImage = document.createElement('img');
-    ficheImage.setAttribute("class","fiche__image");
-    //ficheImage.setAttribute("src","");
-    //ficheImage.setAttribute("alt", "");
-    fiche.appendChild(ficheImage);
-    let ficheHeader = document.createElement('div');
-    ficheHeader.setAttribute('class', 'fiche__header');
-    let title = document.createElement('h2');
-    title.setAttribute("class","fiche__header--title");
-    title.innerText = value.name;
-    ficheHeader.appendChild(title);
-    let time = document.createElement('span');
-    time.setAttribute("class","fiche__header--time");
-    time.innerHTML = '<i class ="far fa-clock"></i> ' + value.time + ' min';
-    ficheHeader.appendChild(time);
-    fiche.appendChild(ficheHeader);
+    fiche.setAttribute('class', 'fiche__container');
+    fiche.innerHTML =`
+        <div class="fiche__image">
+        </div>
+        <div class="fiche__header">
+            <h2 class="fiche__header--title">${value.name}<h2>
+            <span class ="fiche__header--time"><i class ="far fa-clock"></i> ${value.time} min</span>
+        </div>`
     let rolled = document.createElement('div');
     rolled.setAttribute('class', 'fiche__rolled');
     let rolledIngredients = document.createElement('ul');
     rolledIngredients.setAttribute('class', 'fiche__rolled--ingredients');
     ingredients = value.ingredients
-    for (var i = 0; i < ingredients.length; i++) {
-        var food = document.createElement('li');
-        food.setAttribute("class","fiche__rolled--food");
-        var foodIn = document.createElement('span');
-        foodIn.style.fontWeight = '700';
-        var foodQtUn = document.createElement('span');
-        foodQtUn.style.fontWeight = '400';
+    for (let i = 0; i < ingredients.length; i++) {
+        let foodIn = ingredients[i].ingredient
         let quantity;
         let unit;
         if(ingredients[i].quantity===undefined){
@@ -56,17 +41,17 @@ export const fiches = function (value) {
                     unit = " L";
                     break;
                 default :
-                unit = " "+ingredients[i].unit;
-            }
-            foodIn.innerText = ingredients[i].ingredient
-            foodQtUn.innerText = quantity + unit;
-            rolledIngredients.appendChild(food);
-            food.appendChild(foodIn);
-            food.appendChild(foodQtUn); 
+                unit = ingredients[i].unit;
             }
         }
+        rolledIngredients.innerHTML +=`
+            <li class="fiche__rolled--food">
+                <span style="font-weight:700">${foodIn}</span>
+                <span style="font-weight:400">${quantity} ${unit}</span>
+            </li>`
+        }
         rolled.appendChild(rolledIngredients);
-        rolled.innerHTML += `<span class='fiche__rolled--description'>${value.description}><span>`;
+        rolled.innerHTML += `<span class='fiche__rolled--description'>${value.description}<span>`;
         fiche.appendChild(rolled);
     fichesRecettes.appendChild(fiche);
 }
