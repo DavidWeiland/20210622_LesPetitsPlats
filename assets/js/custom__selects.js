@@ -1,6 +1,6 @@
 import { pageConstruction } from "./page__reconstruction";
 import { recipes } from "./recipes";
-import { tri } from "./search__fonction";
+import { triByTag } from "./triByTag";
 
 const tags = document.querySelector(".tags");
 
@@ -52,13 +52,13 @@ export let customisation = function () {
             const selectValue = selectOrigineCiblePrev.getAttribute("value");
             if (selectValue === "ingredient") {
               triValueTabl.splice(0, 1, this.innerHTML);
-              tri(triValueTabl[0]);
+              triByTag(triValueTabl[0]);
             } if (selectValue === "appliance") {
               triValueTabl.splice(1, 1, this.innerHTML);
-              tri(triValueTabl[1]);
+              triByTag(triValueTabl[1]);
             } if (selectValue === "ustensil") {
               triValueTabl.splice(2, 1, this.innerHTML);
-              tri(triValueTabl[2]);
+              triByTag(triValueTabl[2]);
             }
             triValue = this.innerHTML;
             tagsShower(selectValue);
@@ -132,20 +132,20 @@ function tagsShower(value){
     }
     pageConstruction(recipes)
     if (triValueTabl[0] != "") {
-      tri(triValueTabl[0]);
+      triByTag(triValueTabl[0]);
       if (triValueTabl[1] != "") {
-        tri(triValueTabl[1]);
+        triByTag(triValueTabl[1]);
       }
       if (triValueTabl[2] != "") {
-        tri(triValueTabl[2]);
+        triByTag(triValueTabl[2]);
       }
     } else if (triValueTabl[1] != "") {
-      tri(triValueTabl[1]);
+      triByTag(triValueTabl[1]);
       if (triValueTabl[2] != "") {
-        tri(triValueTabl[2]);
+        triByTag(triValueTabl[2]);
       }
     } else if (triValueTabl[2] != "") {
-        tri(triValueTabl[2]);
+      triByTag(triValueTabl[2]);
     }
   }))
 }
