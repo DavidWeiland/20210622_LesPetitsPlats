@@ -1,10 +1,13 @@
+import { pageConstruction } from "./page__reconstruction";
+import { recipes } from "./recipes";
+import { tri } from "./search__fonction";
+
 const tags = document.querySelector(".tags");
 
-let triValue = ["", "", ""];
+let triValue
+let triValueTabl= ["", "", ""];
 export let customisation = function () {
   const customSelect = document.getElementsByClassName("custom-select");
-  
-  
   for (let i = 0; i < customSelect.length; i++) {
     const selectCopy = customSelect[i].getElementsByTagName("select")[0];
     const selectSelected = document.createElement("div");
@@ -48,12 +51,16 @@ export let customisation = function () {
             selectOrigineCiblePrev.innerHTML = this.innerHTML;
             const selectValue = selectOrigineCiblePrev.getAttribute("value");
             if (selectValue === "ingredient") {
-              triValue.splice(0, 1, this.innerHTML);
+              triValueTabl.splice(0, 1, this.innerHTML);
+              tri(triValueTabl[0]);
             } if (selectValue === "appliance") {
-              triValue.splice(1, 1, this.innerHTML);
+              triValueTabl.splice(1, 1, this.innerHTML);
+              tri(triValueTabl[1]);
             } if (selectValue === "ustensil") {
-              triValue.splice(2, 1, this.innerHTML);
+              triValueTabl.splice(2, 1, this.innerHTML);
+              tri(triValueTabl[2]);
             }
+            triValue = this.innerHTML;
             tagsShower(selectValue);
             const sameSelected = this.parentNode.getElementsByClassName("same-as-selected");
             for (var l = 0; l < sameSelected.length; l++) {
@@ -74,7 +81,6 @@ export let customisation = function () {
       this.nextSibling.classList.toggle("select-hide");
       this.classList.toggle("select-arrow-active");
     });
-    selectItems.addEventListener("click", optionTri);
   }
   document.addEventListener("click", closeAllSelect);
 }
@@ -97,59 +103,50 @@ function closeAllSelect(elmnt) {
   }
 }
 
-
-
-function optionTri(e) {
-  e.stopPropagation();
-/*
-  if (triValue === "popularité"){ 
-    myJsonParse["media"].sort(function(a,b){
-      return a.likes-b.likes;
-    });
-  } else if (triValue === 'titre'){
-    myJsonParse["media"].sort(function compare(a,b){
-      if(a.title < b.title)
-        return-1;
-      if(a.title>b.title)
-        return 1;
-      return 0;
-    });
-  } else if (triValue === 'date'){
-    myJsonParse["media"].sort(function compare(a,b){
-      if(a.date < b.date)
-        return-1;
-      if(a.date>b.date)
-        return 1;
-      return 0;
-    });
-  }
-  plancheImage(); //renvoi construction
-  */
-
-}
-
 var closeBtn
 function tagsShower(value){
   const tag=document.querySelector('#tag'+value)
-  let tagText;
   if (value === "ingredient") {
     tag.classList.remove("hidden");
-    tagText = triValue[0]
   }
   if (value === "appliance") {
     tag.classList.remove("hidden");
-    tagText = triValue[1]
   }
   if (value === "ustensil") {
     tag.classList.remove("hidden");
-    tagText = triValue[2]
   }
-  tag.innerHTML = '<span>' + tagText + '</span><i class ="far fa-times-circle closeBtn" id="btn' + value + '"></i>';
+  tag.innerHTML = `<span>${triValue}</span><i class ="far fa-times-circle closeBtn" id="btn${value}"></i>`;
   closeBtn = document.querySelectorAll(".closeBtn")
   closeBtn.forEach((btn) => btn.addEventListener('click', (e) => {
     let cible = e.target.id.split('btn')[1];
     let closeTag = document.querySelector('#tag' + cible);
     closeTag.classList.add("hidden");
+    if (cible === "ingredient") {
+      triValueTabl[0] = "";
+    }
+    if (cible === "appliance") {
+      triValueTabl[1] = "";
+    }
+    if (cible === "ustensil") {
+      triValueTabl[2] = "";
+    }
+    pageConstruction(recipes)
+    if (triValueTabl[0] != "") {
+      tri(triValueTabl[0]);
+      if (triValueTabl[1] != "") {
+        tri(triValueTabl[1]);
+      }
+      if (triValueTabl[2] != "") {
+        tri(triValueTabl[2]);
+      }
+    } else if (triValueTabl[1] != "") {
+      tri(triValueTabl[1]);
+      if (triValueTabl[2] != "") {
+        tri(triValueTabl[2]);
+      }
+    } else if (triValueTabl[2] != "") {
+        tri(triValueTabl[2]);
+    }
   }))
 }
 

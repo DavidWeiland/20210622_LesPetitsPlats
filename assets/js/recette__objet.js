@@ -1,7 +1,7 @@
 import {fiches} from './page__objet.js';
+import { optionsDefault } from './selects__objets';
 
 export let valueRecipe;
-
 let i
 
 export let Recipe = function (name){
@@ -28,6 +28,7 @@ export let Recipe = function (name){
             "ustensils" : this.ustensils
         }
         fiches(valueRecipe);
+        optionsDefault(valueRecipe);
         return valueRecipe;
     }
 }
