@@ -7,9 +7,10 @@ export let triBySearch = function (input) {
   function testInput(regex, chaine) {
     if (regex.test(chaine)) {
       triRecipes(input)
-    } else {
-      pageConstruction(recipes)
     }
+    /*else {
+      pageConstruction(recipes)
+    }*/
   }
   testInput(/^[A-Za-z -]\D{2,}$/, input);
 }
