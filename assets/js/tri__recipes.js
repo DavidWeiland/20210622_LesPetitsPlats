@@ -3,7 +3,7 @@ import { recipes } from "./recipes";
 import { pageConstruction } from "./page__reconstruction";
 
 let recipes2 = recipes
-export let tri = function (value) {
+export let triRecipes = function (value) {
   let tableau = []
   for (const recipe in recipes) {
     for (const ingredient in recipes[recipe].ingredients) {
