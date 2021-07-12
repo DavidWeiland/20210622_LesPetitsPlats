@@ -17,14 +17,11 @@ export let tri = function (value) {
       }
     }
   }
-
   recipes2 = recipes2.filter(recipe => recipe.name.toLowerCase().includes(value) || recipe.appliance.toLowerCase().includes(value) || recipe.description.toLowerCase().includes(value))
-
   recipes2.forEach((elmt) => {
     if (!tableau.includes(elmt)) {
       tableau.push(elmt)
     }
   })
   pageConstruction(tableau)
-  console.log(tableau)
 }
