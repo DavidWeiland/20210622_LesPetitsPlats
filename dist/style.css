@@ -120,7 +120,14 @@ h1 {
           box-sizing: border-box;
   z-index: 11; }
 
+.tag__principal {
+  background-color: khaki;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
 .tags {
+  background-color: lawngreen;
   margin-top: 20px;
   width: 100%;
   height: auto;
@@ -195,13 +202,13 @@ h1 {
   border-radius: 5px;
   color: #000; }
 
-.ingredient {
+.ingredients {
   background-color: #3282F7; }
 
 .appliance {
   background-color: #68D9A4; }
 
-.ustensil {
+.ustensils {
   background-color: #ED6454; }
 
 .select-selected:after {
@@ -254,7 +261,7 @@ h1 {
   right: 0;
   z-index: 99; }
 
-.select-items-ingredient {
+.select-items-ingredients {
   width: 1000px; }
 
 .select-hide {

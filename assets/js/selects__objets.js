@@ -1,43 +1,76 @@
 import { customisation } from "./custom__selects";
-
+import { keySearch } from "./search__fonction"
+import{tagsShower} from "./tag__shower"
 const divSelects = document.querySelector(".selects");
 
-let ingredientsArray = ["Ingredients"];
-let applianceArray = ["Appareils"];
+let ingredientsArray = ["Ingrédients"];
+let applianceArray = ["Appareil"];
 let ustensilArray = ["Ustensiles"];
+export let categories = [];
 
 export const optionsDefault = function (value) {
   for (var i = 0; i < value.ingredients.length; i++) {
-    ingredientsArray.push(value.ingredients[i].ingredient);
+    /*if (value.ingredients[i].ingredient.toLowerCase().includes(keySearch) || keySearch == undefined) {*/
+      ingredientsArray.push(value.ingredients[i].ingredient);
+    //}
   }
   ingredientsArray = Array.from(new Set(ingredientsArray));
-  applianceArray.push(value.appliance);
+  
+  
+  if (value.appliance.toLowerCase().includes(keySearch) || keySearch == undefined) {
+    applianceArray.push(value.appliance);
+  }
   applianceArray = Array.from(new Set(applianceArray));
+  
   for (var i = 0; i < value.ustensils.length; i++) {
-    ustensilArray.push(value.ustensils[i]);
+    if (value.ustensils[i].toLowerCase().includes(keySearch) || keySearch == undefined) {
+      ustensilArray.push(value.ustensils[i]);
+    }
   }
   ustensilArray = Array.from(new Set(ustensilArray));
+
+  if (ingredientsArray.length > 1) {
+    categories[0] = "ingredients"
+  } else {
+    categories[0] = ""
+  }
+  if (applianceArray.length > 1) {
+    categories[1] = "appliance"
+  } else {
+    categories[1] = ""
+  }
+  if (ustensilArray.length > 1) {
+    categories[2] = "ustensils"
+  } else {
+    categories[2] = ""
+  }
 };
 
 export let selects = function () {
   let selectOption;
   let divSelectIngredient = document.createElement("div");
-  divSelectIngredient.setAttribute("class", "custom-select ingredient");
+  divSelectIngredient.setAttribute("class", "custom-select ingredients");
   let selectIngredient = document.createElement("select");
-  selectIngredient.setAttribute("id", "select__ingredient");
+  selectIngredient.setAttribute("id", "select__ingredients");
   let divSelectAppliance = document.createElement("div");
   divSelectAppliance.setAttribute("class", "custom-select appliance");
   let selectAppliance = document.createElement("select");
   selectAppliance.setAttribute("id", "select__appliance");
   let divSelectUstensil = document.createElement("div");
-  divSelectUstensil.setAttribute("class", "custom-select ustensil");
+  divSelectUstensil.setAttribute("class", "custom-select ustensils");
   let selectUstensil = document.createElement("select");
-  selectUstensil.setAttribute("id", "select__ustensil");
+  selectUstensil.setAttribute("id", "select__ustensils");
+  
+  constSelectOption(ingredientsArray[0]);
+  selectIngredient.appendChild(selectOption);
 
   ingredientsArray.forEach((option) => {
-    constSelectOption(option);
-    selectIngredient.appendChild(selectOption);
+    if (option.toLowerCase().includes(keySearch) || keySearch == undefined) {
+      constSelectOption(option);
+      selectIngredient.appendChild(selectOption);
+    }
   });
+
   applianceArray.forEach((option) => {
     constSelectOption(option);
     selectAppliance.appendChild(selectOption);
@@ -53,7 +86,7 @@ export let selects = function () {
     selectOption.textContent = option;
   }
   ingredientsArray = ["Ingredients"];
-  applianceArray = ["Appareils"];
+  applianceArray = ["Appareil"];
   ustensilArray = ["Ustensiles"];
   divSelectIngredient.appendChild(selectIngredient);
   divSelectAppliance.appendChild(selectAppliance);

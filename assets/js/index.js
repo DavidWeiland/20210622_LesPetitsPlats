@@ -3,11 +3,9 @@ import { icon } from "./search__icon";
 import { recipes } from "./recipes";
 import { searchListenner } from "./search__fonction";
 import { pageConstruction } from "./page__reconstruction";
-import { tri } from "./tri__recipes";
 
 icon();
 
-//tri()
 pageConstruction(recipes);
 searchListenner;
 

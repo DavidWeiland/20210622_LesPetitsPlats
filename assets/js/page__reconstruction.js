@@ -9,7 +9,7 @@ export let pageConstruction = function (source) {
   ficheRecettes.innerHTML = "";
   divSelects.innerHTML = "";
   if (source.length == 0) {
-    ficheRecettes.innerHTML = `<h2 class="alerte"> Aucune recette ne correspond à votre critère.</br>Vous pouvez chercher "Tarte aux pommes", "Poisson", etc...</h2>`;
+    ficheRecettes.innerHTML = `<h2 class="alerte"> Aucune recette ne correspond à votre critère.</br>Vous pouvez chercher "Tarte aux pommes", "Poulet", etc...</h2>`;
   } else {
     fichesRecipe(source);
     selects();
