@@ -2,14 +2,11 @@
 import { triByTag } from "./triByTag";
 import { tagsShowerFromTag } from "./tag__shower"
 
-const tagPrincipal = document.querySelector(".tag__principal");
-
 export let triValue;
 export let triValueTabl = ["", "", ""];
 
 export let customisation = function () {
   const customSelect = document.getElementsByClassName("custom-select");
-  tagPrincipal.innerHTML = `<span class="tags" id="tagBySearch"></span><span class="tags" id="tagByTag"></span>`
   for (let i = 0; i < customSelect.length; i++) {
     const selectCopy = customSelect[i].getElementsByTagName("select")[0];
     const selectSelected = document.createElement("div");
@@ -64,6 +61,7 @@ export let customisation = function () {
               triByTag(triValueTabl[2]);
             }
             triValue = this.innerHTML;
+            console.log(triValue +" -- "+triValueTabl)
             tagsShowerFromTag(selectValue, triValue);
             const sameSelected =
               this.parentNode.getElementsByClassName("same-as-selected");

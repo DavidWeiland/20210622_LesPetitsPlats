@@ -3,19 +3,16 @@ import { keySearch } from "./search__fonction"
 import{tagsShower} from "./tag__shower"
 const divSelects = document.querySelector(".selects");
 
-let ingredientsArray = ["Ingrédients"];
-let applianceArray = ["Appareil"];
-let ustensilArray = ["Ustensiles"];
+let ingredientsArray = [];
+let applianceArray = [];
+let ustensilArray = [];
 export let categories = [];
 
 export const optionsDefault = function (value) {
   for (var i = 0; i < value.ingredients.length; i++) {
-    /*if (value.ingredients[i].ingredient.toLowerCase().includes(keySearch) || keySearch == undefined) {*/
       ingredientsArray.push(value.ingredients[i].ingredient);
-    //}
   }
   ingredientsArray = Array.from(new Set(ingredientsArray));
-  
   
   if (value.appliance.toLowerCase().includes(keySearch) || keySearch == undefined) {
     applianceArray.push(value.appliance);
@@ -47,6 +44,7 @@ export const optionsDefault = function (value) {
 };
 
 export let selects = function () {
+  let key = keySearch
   let selectOption;
   let divSelectIngredient = document.createElement("div");
   divSelectIngredient.setAttribute("class", "custom-select ingredients");
@@ -61,11 +59,15 @@ export let selects = function () {
   let selectUstensil = document.createElement("select");
   selectUstensil.setAttribute("id", "select__ustensils");
   
-  constSelectOption(ingredientsArray[0]);
+  constSelectOption("Ingrédients");
   selectIngredient.appendChild(selectOption);
+  constSelectOption("Appareil");
+  selectAppliance.appendChild(selectOption);
+  constSelectOption("Ustensiles");
+  selectUstensil.appendChild(selectOption);
 
   ingredientsArray.forEach((option) => {
-    if (option.toLowerCase().includes(keySearch) || keySearch == undefined) {
+    if (option.toLowerCase().includes(key) || key == undefined) {
       constSelectOption(option);
       selectIngredient.appendChild(selectOption);
     }
@@ -85,9 +87,9 @@ export let selects = function () {
     selectOption.setAttribute("value", option);
     selectOption.textContent = option;
   }
-  ingredientsArray = ["Ingredients"];
-  applianceArray = ["Appareil"];
-  ustensilArray = ["Ustensiles"];
+  ingredientsArray = [];
+  applianceArray = [];
+  ustensilArray = [];
   divSelectIngredient.appendChild(selectIngredient);
   divSelectAppliance.appendChild(selectAppliance);
   divSelectUstensil.appendChild(selectUstensil);
@@ -95,4 +97,6 @@ export let selects = function () {
   divSelects.appendChild(divSelectAppliance);
   divSelects.appendChild(divSelectUstensil);
   customisation();
+  key =""
+  console.log(key)
 };

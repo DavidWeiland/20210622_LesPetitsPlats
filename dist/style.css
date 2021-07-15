@@ -120,21 +120,6 @@ h1 {
           box-sizing: border-box;
   z-index: 11; }
 
-.tag__principal {
-  background-color: khaki;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
-
-.tags {
-  background-color: lawngreen;
-  margin-top: 20px;
-  width: 100%;
-  height: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
-
 .tag {
   min-width: auto;
   max-width: 200px;
@@ -155,6 +140,29 @@ h1 {
   font-size: 14px; }
   .tag span {
     margin-right: 10px; }
+  .tag__principal {
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+  .tag__secondaire {
+    width: 100%;
+    height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+  .tags {
+    width: auto;
+    height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
 
 .hidden {
   display: none; }
