@@ -9,13 +9,8 @@ export let triBySearch = function (keySearch) {
   function testInput(regex, chaine) {
     if (regex.test(chaine)) {
       triRecipes(keySearch);
-      console.log(keySearch)
   categories.forEach((categorie) => {
-    if (categorie != "") {
       tagsShowerFromSearch(categorie, keySearch)
-      keySearch = ""
-      console.log(keySearch)
-    }
   })
     }
     else {

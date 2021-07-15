@@ -14,18 +14,14 @@ export const optionsDefault = function (value) {
   }
   ingredientsArray = Array.from(new Set(ingredientsArray));
   
-  if (value.appliance.toLowerCase().includes(keySearch) || keySearch == undefined) {
-    applianceArray.push(value.appliance);
-  }
+  applianceArray.push(value.appliance);
   applianceArray = Array.from(new Set(applianceArray));
   
   for (var i = 0; i < value.ustensils.length; i++) {
-    if (value.ustensils[i].toLowerCase().includes(keySearch) || keySearch == undefined) {
-      ustensilArray.push(value.ustensils[i]);
-    }
+    ustensilArray.push(value.ustensils[i]);
   }
   ustensilArray = Array.from(new Set(ustensilArray));
-
+  
   if (ingredientsArray.length > 1) {
     categories[0] = "ingredients"
   } else {
@@ -65,21 +61,26 @@ export let selects = function () {
   selectAppliance.appendChild(selectOption);
   constSelectOption("Ustensiles");
   selectUstensil.appendChild(selectOption);
-
+  
   ingredientsArray.forEach((option) => {
     if (option.toLowerCase().includes(key) || key == undefined) {
       constSelectOption(option);
       selectIngredient.appendChild(selectOption);
     }
   });
-
+  
   applianceArray.forEach((option) => {
-    constSelectOption(option);
-    selectAppliance.appendChild(selectOption);
+    if (option.toLowerCase().includes(key) || key == undefined) {
+      constSelectOption(option);
+      selectAppliance.appendChild(selectOption);
+    }
   });
+  
   ustensilArray.forEach((option) => {
-    constSelectOption(option);
-    selectUstensil.appendChild(selectOption);
+    if (option.toLowerCase().includes(key) || key == undefined) {
+      constSelectOption(option);
+      selectUstensil.appendChild(selectOption);
+    }
   });
   function constSelectOption(option) {
     selectOption = document.createElement("option");
@@ -97,6 +98,4 @@ export let selects = function () {
   divSelects.appendChild(divSelectAppliance);
   divSelects.appendChild(divSelectUstensil);
   customisation();
-  key =""
-  console.log(key)
 };

@@ -8,5 +8,5 @@ export const searchListenner = search.addEventListener("input", (e) => {
   keySearch = e.target.value.toLowerCase()
   divTags.innerHTML = "";
   triBySearch(keySearch);
-  console.log(keySearch)
+  keySearch =""
 });

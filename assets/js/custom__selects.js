@@ -61,7 +61,6 @@ export let customisation = function () {
               triByTag(triValueTabl[2]);
             }
             triValue = this.innerHTML;
-            console.log(triValue +" -- "+triValueTabl)
             tagsShowerFromTag(selectValue, triValue);
             const sameSelected =
               this.parentNode.getElementsByClassName("same-as-selected");
