@@ -1,10 +1,7 @@
-
 import { triByTag } from "./triByTag";
 import { tagsShowerFromTag } from "./tag__shower"
-
 export let triValue;
-export let triValueTabl = ["", "", ""];
-
+export let triValueTabl = [];
 export let customisation = function () {
   const customSelect = document.getElementsByClassName("custom-select");
   for (let i = 0; i < customSelect.length; i++) {
@@ -34,7 +31,6 @@ export let customisation = function () {
     selectSelected.innerHTML =
       selectCopy.options[selectCopy.selectedIndex].innerHTML;
     customSelect[i].appendChild(selectSelected);
-
     for (let j = 1; j < selectCopy.length; j++) {
       const optionElement = document.createElement("div");
       optionElement.innerHTML = selectCopy.options[j].innerHTML;
@@ -48,18 +44,9 @@ export let customisation = function () {
             selectOrigine.selectedIndex = k;
             selectOrigineCiblePrev.innerHTML = this.innerHTML;
             const selectValue = selectOrigineCiblePrev.getAttribute("value");
-            if (selectValue === "ingredients") {
-              triValueTabl.splice(0, 1, this.innerHTML);
-              triByTag(triValueTabl[0]);
-            }
-            if (selectValue === "appliance") {
-              triValueTabl.splice(1, 1, this.innerHTML);
-              triByTag(triValueTabl[1]);
-            }
-            if (selectValue === "ustensils") {
-              triValueTabl.splice(2, 1, this.innerHTML);
-              triByTag(triValueTabl[2]);
-            }
+            triValueTabl.push(this.innerHTML)
+            triValueTabl.forEach((value) => triByTag(value))
+            triValueTabl=triValueTabl.filter((elmt)=>elmt!="")
             triValue = this.innerHTML;
             tagsShowerFromTag(selectValue, triValue);
             const sameSelected =
@@ -85,7 +72,6 @@ export let customisation = function () {
   }
   document.addEventListener("click", closeAllSelect);
 };
-
 function closeAllSelect(elmnt) {
   let i,
     arrNo = [];
@@ -104,5 +90,3 @@ function closeAllSelect(elmnt) {
     }
   }
 }
-
-

@@ -1,9 +1,7 @@
 import { fiches } from "./page__objet.js";
 import { optionsDefault } from "./selects__objets";
-
 export let valueRecipe;
 let i;
-
 export let Recipe = function (name) {
   this.name = name;
   this.id = "id";
@@ -32,13 +30,11 @@ export let Recipe = function (name) {
     return valueRecipe;
   };
 };
-
 export const fichesRecipe = function (jsonObj) {
   for (i = 0; i < jsonObj.length; i++) {
     construction(jsonObj);
   }
 };
-
 export const construction = function (recipe) {
   var myRecipe = new Recipe(recipe[i].name);
   myRecipe.id = recipe[i].id;

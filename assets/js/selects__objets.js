@@ -1,12 +1,10 @@
 import { customisation } from "./custom__selects";
 import { keySearch } from "./search__fonction"
 const divSelects = document.querySelector(".selects");
-
 let ingredientsArray = [];
 let applianceArray = [];
 let ustensilArray = [];
 export let categories = [];
-
 export const optionsDefault = function (value) {
   for (var i = 0; i < value.ingredients.length; i++) {
       ingredientsArray.push(value.ingredients[i].ingredient);
@@ -21,7 +19,6 @@ export const optionsDefault = function (value) {
   }
   ustensilArray = Array.from(new Set(ustensilArray));
 };
-
 export let selects = function () {
   let key = keySearch
   let selectOption;

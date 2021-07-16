@@ -1,10 +1,8 @@
 import { fichesRecipe } from "./recette__objet";
 import { selects } from "./selects__objets";
-
 const ficheRecettes = document.querySelector(".fiche");
 const divSelects = document.querySelector(".selects");
 export let newRecipes;
-
 export let pageConstruction = function (source) {
   ficheRecettes.innerHTML = "";
   divSelects.innerHTML = "";

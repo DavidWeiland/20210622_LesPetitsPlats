@@ -1,6 +1,5 @@
   
 import { newRecipes, pageConstruction } from "./page__construction";
-
 export let triRecipes = function (value) {
   let newRecipes2 = [];
   newRecipes.forEach((recipe) => {
