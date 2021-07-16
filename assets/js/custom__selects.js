@@ -3,7 +3,8 @@ import { triByTag } from "./triByTag";
 import { tagsShowerFromTag } from "./tag__shower"
 
 export let triValue;
-export let triValueTabl = ["", "", ""];
+//export let triValueTabl = ["", "", ""];
+export let triValueTabl = [];
 
 export let customisation = function () {
   const customSelect = document.getElementsByClassName("custom-select");
@@ -48,18 +49,9 @@ export let customisation = function () {
             selectOrigine.selectedIndex = k;
             selectOrigineCiblePrev.innerHTML = this.innerHTML;
             const selectValue = selectOrigineCiblePrev.getAttribute("value");
-            if (selectValue === "ingredients") {
-              triValueTabl.splice(0, 1, this.innerHTML);
-              triByTag(triValueTabl[0]);
-            }
-            if (selectValue === "appliance") {
-              triValueTabl.splice(1, 1, this.innerHTML);
-              triByTag(triValueTabl[1]);
-            }
-            if (selectValue === "ustensils") {
-              triValueTabl.splice(2, 1, this.innerHTML);
-              triByTag(triValueTabl[2]);
-            }
+            triValueTabl.push(this.innerHTML)
+            triValueTabl.forEach((value) => triByTag(value))
+            triValueTabl=triValueTabl.filter((elmt)=>elmt!="")
             triValue = this.innerHTML;
             tagsShowerFromTag(selectValue, triValue);
             const sameSelected =
