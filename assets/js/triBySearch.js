@@ -1,6 +1,6 @@
 import { recipes } from "./recipes";
 import { triRecipes } from "./tri__recipes";
-import { pageConstruction } from "./page__reconstruction";
+import { pageConstruction } from "./page__construction";
 import{ tagsShowerFromSearch} from "./tag__shower"
 import { categories } from "./selects__objets";
 
@@ -9,11 +9,12 @@ export let triBySearch = function (keySearch) {
   function testInput(regex, chaine) {
     if (regex.test(chaine)) {
       triRecipes(keySearch);
-  categories.forEach((categorie) => {
-      tagsShowerFromSearch(categorie, keySearch)
-  })
-    }
-    else {
+      categories.forEach((categorie) => {
+        if (categorie != "") {
+          tagsShowerFromSearch(categorie, keySearch)
+        }
+      })
+    } else {
       pageConstruction(recipes)
     }
   }

@@ -164,9 +164,6 @@ h1 {
     display: -ms-flexbox;
     display: flex; }
 
-.hidden {
-  display: none; }
-
 .selects {
   margin-top: 20px;
   width: 100%;

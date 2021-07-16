@@ -1,6 +1,5 @@
 import { customisation } from "./custom__selects";
 import { keySearch } from "./search__fonction"
-import{tagsShower} from "./tag__shower"
 const divSelects = document.querySelector(".selects");
 
 let ingredientsArray = [];
@@ -21,27 +20,12 @@ export const optionsDefault = function (value) {
     ustensilArray.push(value.ustensils[i]);
   }
   ustensilArray = Array.from(new Set(ustensilArray));
-  
-  if (ingredientsArray.length > 1) {
-    categories[0] = "ingredients"
-  } else {
-    categories[0] = ""
-  }
-  if (applianceArray.length > 1) {
-    categories[1] = "appliance"
-  } else {
-    categories[1] = ""
-  }
-  if (ustensilArray.length > 1) {
-    categories[2] = "ustensils"
-  } else {
-    categories[2] = ""
-  }
 };
 
 export let selects = function () {
   let key = keySearch
   let selectOption;
+  categories = [];
   let divSelectIngredient = document.createElement("div");
   divSelectIngredient.setAttribute("class", "custom-select ingredients");
   let selectIngredient = document.createElement("select");
@@ -54,32 +38,34 @@ export let selects = function () {
   divSelectUstensil.setAttribute("class", "custom-select ustensils");
   let selectUstensil = document.createElement("select");
   selectUstensil.setAttribute("id", "select__ustensils");
-  
   constSelectOption("Ingrédients");
   selectIngredient.appendChild(selectOption);
   constSelectOption("Appareil");
   selectAppliance.appendChild(selectOption);
   constSelectOption("Ustensiles");
   selectUstensil.appendChild(selectOption);
-  
+  let compteurI = 0
+  let compteurA = 0
+  let compteurU = 0
   ingredientsArray.forEach((option) => {
     if (option.toLowerCase().includes(key) || key == undefined) {
       constSelectOption(option);
       selectIngredient.appendChild(selectOption);
+      compteurI++
     }
   });
-  
   applianceArray.forEach((option) => {
     if (option.toLowerCase().includes(key) || key == undefined) {
       constSelectOption(option);
       selectAppliance.appendChild(selectOption);
+      compteurA++
     }
   });
-  
   ustensilArray.forEach((option) => {
     if (option.toLowerCase().includes(key) || key == undefined) {
       constSelectOption(option);
       selectUstensil.appendChild(selectOption);
+      compteurU++
     }
   });
   function constSelectOption(option) {
@@ -88,9 +74,6 @@ export let selects = function () {
     selectOption.setAttribute("value", option);
     selectOption.textContent = option;
   }
-  ingredientsArray = [];
-  applianceArray = [];
-  ustensilArray = [];
   divSelectIngredient.appendChild(selectIngredient);
   divSelectAppliance.appendChild(selectAppliance);
   divSelectUstensil.appendChild(selectUstensil);
@@ -98,4 +81,22 @@ export let selects = function () {
   divSelects.appendChild(divSelectAppliance);
   divSelects.appendChild(divSelectUstensil);
   customisation();
+  if (compteurI > 0) {
+    categories[0] = "ingredients"
+  } else {
+    categories[0] = ""
+  }
+  if (compteurA > 0) {
+    categories[1] = "appliance"
+  } else {
+    categories[1] = ""
+  }
+  if (compteurU > 0) {
+    categories[2] = "ustensils"
+  } else {
+    categories[2] = ""
+  }
+  ingredientsArray = [];
+  applianceArray = [];
+  ustensilArray = [];
 };
