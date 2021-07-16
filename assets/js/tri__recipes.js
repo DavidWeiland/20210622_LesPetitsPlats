@@ -1,6 +1,5 @@
 import { recipes } from "./recipes";
 import { pageConstruction } from "./page__construction";
-
 let recipes2 = recipes;
 export let triRecipes = function (keySearch) {
   let tableau = [];
@@ -21,11 +20,9 @@ export let triRecipes = function (keySearch) {
     recipe.appliance.toLowerCase().includes(keySearch) ||
     recipe.description.toLowerCase().includes(keySearch)
   );
-
   recipes2.forEach((elmt) => {
     tableau.push(elmt);
   })
-  
   tableau = Array.from(new Set(tableau))
   pageConstruction(tableau)
 }

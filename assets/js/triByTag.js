@@ -1,5 +1,4 @@
 import { newRecipes, pageConstruction } from "./page__construction";
-
 const search = document.querySelector("#search");
 export let triByTag = function (KeyTag) {
   search.value = "";

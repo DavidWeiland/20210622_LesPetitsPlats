@@ -3,7 +3,6 @@ import { triRecipes } from "./tri__recipes";
 import { pageConstruction } from "./page__construction";
 import{ tagsShowerFromSearch} from "./tag__shower"
 import { categories } from "./selects__objets";
-
 export let triBySearch = function (keySearch) {
   //vérifie nombre de lettres min (3) + Alpha != number
   function testInput(regex, chaine) {
