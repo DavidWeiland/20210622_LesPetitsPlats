@@ -1,31 +1,30 @@
-import { recipes } from "./recipes";
-import { pageConstruction } from "./page__construction";
-
-let recipes2 = recipes;
-export let triRecipes = function (keySearch) {
-  let tableau = [];
-  for (const recipe in recipes) {
-    for (const ingredient in recipes[recipe].ingredients) {
-      if (recipes[recipe].ingredients[ingredient].ingredient.toLowerCase().includes(keySearch)) {
-        tableau.push(recipes[recipe]);
-      }
-    }
-    for (const ustensil in recipes[recipe].ustensils) {
-      if (recipes[recipe].ustensils[ustensil].toLowerCase().includes(keySearch)) {
-        tableau.push(recipes[recipe]);
-      }
-    }
-  }
-  recipes2 = recipes2.filter((recipe) =>
-    recipe.name.toLowerCase().includes(keySearch) ||
-    recipe.appliance.toLowerCase().includes(keySearch) ||
-    recipe.description.toLowerCase().includes(keySearch)
-  );
-
-  recipes2.forEach((elmt) => {
-    tableau.push(elmt);
-  })
   
-  tableau = Array.from(new Set(tableau))
-  pageConstruction(tableau)
+import { newRecipes, pageConstruction } from "./page__construction";
+
+export let triRecipes = function (value) {
+  let newRecipes2 = [];
+  newRecipes.forEach((recipe) => {
+    const name = recipe.name.toLowerCase()
+    const appliance = recipe.appliance.toLowerCase()
+    const description = recipe.description.toLowerCase()
+    const ustensils = recipe.ustensils
+    const ingredients = recipe.ingredients
+    if (name.includes(value)||appliance.includes(value)||description.includes(value)) {
+      newRecipes2.push(recipe)
+    }
+    ustensils.forEach((ustensil) => {
+      const ustensilLower = ustensil.toLowerCase()
+      if (ustensilLower.includes(value)) {
+        newRecipes2.push(recipe)
+      }
+    })
+    ingredients.forEach((ingredient) => {
+      const ingredientLower = ingredient.ingredient.toLowerCase()
+      if (ingredientLower.includes(value)) {
+        newRecipes2.push(recipe)
+      }
+    })
+  })
+  newRecipes2 = Array.from(new Set(newRecipes2))
+  pageConstruction(newRecipes2)
 }
