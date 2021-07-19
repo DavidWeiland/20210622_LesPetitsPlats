@@ -1,8 +1,9 @@
 .search{
     background: $secondaryBackground;
     border-radius: 5px;
-    width: 100%;
+    width: 90%;
     height: 69px;
+    margin: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -37,3 +38,8 @@
     box-sizing: border-box;
     z-index:11;
 }
+@media screen and (min-width: 1240px){
+    .search{
+      width: 100%;
+    }
+  }

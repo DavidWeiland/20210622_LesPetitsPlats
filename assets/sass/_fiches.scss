@@ -4,7 +4,7 @@
     height: auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     &__container{
         display: flex;
@@ -14,7 +14,7 @@
         border-radius : 5px;
         max-width: 400px;
         height: 400px;
-        margin-top: 2%;
+        margin: 2%;
         box-sizing: border-box;
     }
     &__image{
@@ -79,6 +79,35 @@
         }
     }
     & > *{
-        flex: 30%;
+        flex: 100%;
     } 
+}
+
+@media screen and (min-width: 768px){
+    .fiche {
+        & > *{
+            flex: 40%;
+        } 
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .fiche{
+        justify-content: center;
+        & > *{
+            flex: 30%;
+        }
+    }
+}
+@media screen and (min-width: 1240px){
+    .fiche{
+        justify-content: space-between;
+        & > *{
+            flex: 30%;
+        }
+        &__container{
+            margin: 0;
+            margin-top: 2%;
+        }
+    }
 }
