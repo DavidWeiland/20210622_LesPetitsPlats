@@ -15,7 +15,6 @@
     margin-right: 10px;
     }
     &__principal{
-        margin-top: 20px;
         width: 100%;
         height: auto;
         display: flex;
@@ -25,10 +24,13 @@
         width: 100%;
         height: auto;
         display: flex;
+        box-sizing: border-box;
+        flex-wrap: wrap;
     }
     &s{
         width:auto;
         height: auto;
         display: flex;
+        margin-top: 20px;
     }
 }
